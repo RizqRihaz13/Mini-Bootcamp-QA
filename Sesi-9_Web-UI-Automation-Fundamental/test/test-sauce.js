@@ -19,6 +19,7 @@ describe('SauceDemo Automation Test', function () {
         await driver.findElement(By.id('user-name')).sendKeys('standard_user');
         await driver.findElement(By.id('password')).sendKeys('secret_sauce');
         await driver.findElement(By.id('login-button')).click();
+
         await driver.wait(until.urlContains('inventory'), 5000);
     }
 
@@ -34,24 +35,27 @@ describe('SauceDemo Automation Test', function () {
     it('Urutkan Produk dari A-Z', async function () {
         await login();
 
-        await driver.wait(
+        const dropdown = await driver.wait(
             until.elementLocated(By.className('product_sort_container')),
             5000
         );
 
-        const dropdown = await driver.findElement(By.className('product_sort_container'));
-        await dropdown.sendKeys('Name (A to Z)');
+        await dropdown.sendKeys('az');
 
-        await driver.wait(
-            until.elementsLocated(By.className('inventory_item_name')),
-            5000
-        );
+        await driver.wait(async () => {
+            const firstItem = await driver
+                .findElement(By.className('inventory_item_name'))
+                .getText();
+
+            return firstItem === 'Sauce Labs Backpack';
+        }, 5000);
 
         const items = await driver.findElements(By.className('inventory_item_name'));
 
-        let names = [];
-        for (let item of items) {
-            names.push(await item.getText());
+        const names = [];
+        for (const item of items) {
+            const text = await item.getText();
+            names.push(text);
         }
 
         const sortedNames = [...names].sort();
