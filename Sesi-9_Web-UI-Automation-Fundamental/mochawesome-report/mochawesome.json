@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-04-24T09:05:43.835Z",
+    "end": "2026-04-24T09:05:47.635Z",
+    "duration": 3800,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b02c4426-0fa5-4cf5-b261-74aecf9ba6de",
+      "title": "",
+      "fullFile": "C:\\KULIAH\\Mini Bootcamp QA\\Sesi-9_Web-UI-Automation-Fundamental\\test\\test-sauce.js",
+      "file": "\\test\\test-sauce.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4b760e7d-322a-4d43-b846-b6be4c76e611",
+          "title": "SauceDemo Automation Test",
+          "fullFile": "C:\\KULIAH\\Mini Bootcamp QA\\Sesi-9_Web-UI-Automation-Fundamental\\test\\test-sauce.js",
+          "file": "\\test\\test-sauce.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"SauceDemo Automation Test\"",
+              "fullTitle": "SauceDemo Automation Test \"before each\" hook in \"SauceDemo Automation Test\"",
+              "timedOut": false,
+              "duration": 842,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build();",
+              "err": {},
+              "uuid": "9a1a4cb9-f3f8-4268-bbcb-8e09cba55b3f",
+              "parentUUID": "4b760e7d-322a-4d43-b846-b6be4c76e611",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"SauceDemo Automation Test\"",
+              "fullTitle": "SauceDemo Automation Test \"after each\" hook in \"SauceDemo Automation Test\"",
+              "timedOut": false,
+              "duration": 58,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "859e9f7f-81ab-4f76-a295-8e3be7e29e2c",
+              "parentUUID": "4b760e7d-322a-4d43-b846-b6be4c76e611",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Sukses Login",
+              "fullTitle": "SauceDemo Automation Test Sukses Login",
+              "timedOut": false,
+              "duration": 840,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await login();\nconst url = await driver.getCurrentUrl();\nassert.ok(url.includes('inventory'), 'Login gagal');",
+              "err": {},
+              "uuid": "3dc52257-941f-417c-9949-69ffe66efb56",
+              "parentUUID": "4b760e7d-322a-4d43-b846-b6be4c76e611",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Urutkan Produk dari A-Z",
+              "fullTitle": "SauceDemo Automation Test Urutkan Produk dari A-Z",
+              "timedOut": false,
+              "duration": 1071,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await login();\nawait driver.wait(\n    until.elementLocated(By.className('product_sort_container')),\n    5000\n);\nconst dropdown = await driver.findElement(By.className('product_sort_container'));\nawait dropdown.sendKeys('Name (A to Z)');\nawait driver.wait(\n    until.elementsLocated(By.className('inventory_item_name')),\n    5000\n);\nconst items = await driver.findElements(By.className('inventory_item_name'));\nlet names = [];\nfor (let item of items) {\n    names.push(await item.getText());\n}\nconst sortedNames = [...names].sort();\nassert.deepStrictEqual(names, sortedNames, 'Sorting gagal');",
+              "err": {
+                "message": "AssertionError: Sorting gagal\n+ actual - expected\n\n  [\n+   'Test.allTheThings() T-Shirt (Red)',\n+   'Sauce Labs Onesie',\n+   'Sauce Labs Fleece Jacket',\n+   'Sauce Labs Bolt T-Shirt',\n+   'Sauce Labs Bike Light',\n+   'Sauce Labs Backpack'\n-   'Sauce Labs Backpack',\n-   'Sauce Labs Bike Light',\n-   'Sauce Labs Bolt T-Shirt',\n-   'Sauce Labs Fleece Jacket',\n-   'Sauce Labs Onesie',\n-   'Test.allTheThings() T-Shirt (Red)'\n  ]",
+                "estack": "AssertionError [ERR_ASSERTION]: Sorting gagal\n+ actual - expected\n\n  [\n+   'Test.allTheThings() T-Shirt (Red)',\n+   'Sauce Labs Onesie',\n+   'Sauce Labs Fleece Jacket',\n+   'Sauce Labs Bolt T-Shirt',\n+   'Sauce Labs Bike Light',\n+   'Sauce Labs Backpack'\n-   'Sauce Labs Backpack',\n-   'Sauce Labs Bike Light',\n-   'Sauce Labs Bolt T-Shirt',\n-   'Sauce Labs Fleece Jacket',\n-   'Sauce Labs Onesie',\n-   'Test.allTheThings() T-Shirt (Red)'\n  ]\n    at Context.<anonymous> (test\\test-sauce.js:59:16)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": " [\n+   \"Sauce Labs Backpack\"\n+   \"Sauce Labs Bike Light\"\n+   \"Sauce Labs Bolt T-Shirt\"\n+   \"Sauce Labs Fleece Jacket\"\n+   \"Sauce Labs Onesie\"\n   \"Test.allTheThings() T-Shirt (Red)\"\n-   \"Sauce Labs Onesie\"\n-   \"Sauce Labs Fleece Jacket\"\n-   \"Sauce Labs Bolt T-Shirt\"\n-   \"Sauce Labs Bike Light\"\n-   \"Sauce Labs Backpack\"\n ]\n"
+              },
+              "uuid": "db349df8-8468-49fd-88f8-fb5972d71ab8",
+              "parentUUID": "4b760e7d-322a-4d43-b846-b6be4c76e611",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3dc52257-941f-417c-9949-69ffe66efb56"
+          ],
+          "failures": [
+            "db349df8-8468-49fd-88f8-fb5972d71ab8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1911,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.8.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.2"
+    }
+  }
+}
