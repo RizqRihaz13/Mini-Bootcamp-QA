@@ -1,0 +1,250 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-04-28T04:45:29.093Z",
+    "end": "2026-04-28T04:45:37.357Z",
+    "duration": 8264,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "74dccd38-44b0-4d60-8843-1ad29759c809",
+      "title": "",
+      "fullFile": "C:\\KULIAH\\Mini Bootcamp QA\\Sesi-10_Web-UI-Automation-Advance-Part-1\\test\\login.test.js",
+      "file": "\\test\\login.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "46ae15a4-205a-499f-8421-da8a4d839f0a",
+          "title": "Login - SauceDemo",
+          "fullFile": "C:\\KULIAH\\Mini Bootcamp QA\\Sesi-10_Web-UI-Automation-Advance-Part-1\\test\\login.test.js",
+          "file": "\\test\\login.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Login - SauceDemo\"",
+              "fullTitle": "Login - SauceDemo \"before all\" hook in \"Login - SauceDemo\"",
+              "timedOut": false,
+              "duration": 1,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log('=== START TEST LOGIN SAUCEDEMO ===');",
+              "err": {},
+              "uuid": "2fdece94-f24b-4a92-ba84-456bc64757c8",
+              "parentUUID": "46ae15a4-205a-499f-8421-da8a4d839f0a",
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"before each\" hook in \"Login - SauceDemo\"",
+              "fullTitle": "Login - SauceDemo \"before each\" hook in \"Login - SauceDemo\"",
+              "timedOut": false,
+              "duration": 846,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let options = new chrome.Options();\noptions.addArguments('--headless');\ndriver = await new Builder()\n    .forBrowser('chrome')\n    .setChromeOptions(options)\n    .build();",
+              "err": {},
+              "uuid": "dd0c64e8-008f-48ac-befa-c8ca47c33e22",
+              "parentUUID": "46ae15a4-205a-499f-8421-da8a4d839f0a",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Login - SauceDemo\"",
+              "fullTitle": "Login - SauceDemo \"after all\" hook in \"Login - SauceDemo\"",
+              "timedOut": false,
+              "duration": 1,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log('=== END TEST LOGIN SAUCEDEMO ===');",
+              "err": {},
+              "uuid": "8d505878-ebb5-4d44-ac1f-54b675e1740c",
+              "parentUUID": "46ae15a4-205a-499f-8421-da8a4d839f0a",
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"after each\" hook in \"Login - SauceDemo\"",
+              "fullTitle": "Login - SauceDemo \"after each\" hook in \"Login - SauceDemo\"",
+              "timedOut": false,
+              "duration": 46,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "f06fa645-871f-40d8-aeff-cc41c8805b32",
+              "parentUUID": "46ae15a4-205a-499f-8421-da8a4d839f0a",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Login berhasil dengan credential valid",
+              "fullTitle": "Login - SauceDemo Login berhasil dengan credential valid",
+              "timedOut": false,
+              "duration": 850,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('https://www.saucedemo.com/');\nawait driver.findElement(By.id('user-name')).sendKeys('standard_user');\nawait driver.findElement(By.id('password')).sendKeys('secret_sauce');\nawait driver.findElement(By.id('login-button')).click();\nawait driver.wait(until.elementLocated(By.className('title')), 5000);\nconst title = await driver.findElement(By.className('title')).getText();\nassert.strictEqual(title, 'Products');",
+              "err": {},
+              "uuid": "1ee07c15-2d5c-4b0b-8be5-936b0f69ed59",
+              "parentUUID": "46ae15a4-205a-499f-8421-da8a4d839f0a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login gagal dengan password salah",
+              "fullTitle": "Login - SauceDemo Login gagal dengan password salah",
+              "timedOut": false,
+              "duration": 727,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('https://www.saucedemo.com/');\nawait driver.findElement(By.id('user-name')).sendKeys('standard_user');\nawait driver.findElement(By.id('password')).sendKeys('salah');\nawait driver.findElement(By.id('login-button')).click();\nconst error = await driver.findElement(By.css('[data-test=\"error\"]')).getText();\nassert.ok(error.includes('Username and password do not match'));",
+              "err": {},
+              "uuid": "2f52e3aa-1824-43be-b1dd-72fa7525d89e",
+              "parentUUID": "46ae15a4-205a-499f-8421-da8a4d839f0a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login gagal tanpa username",
+              "fullTitle": "Login - SauceDemo Login gagal tanpa username",
+              "timedOut": false,
+              "duration": 654,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('https://www.saucedemo.com/');\nawait driver.findElement(By.id('password')).sendKeys('secret_sauce');\nawait driver.findElement(By.id('login-button')).click();\nconst error = await driver.findElement(By.css('[data-test=\"error\"]')).getText();\nassert.ok(error.includes('Username is required'));",
+              "err": {},
+              "uuid": "bddffec1-eb17-4e3b-96b7-298cd13567ef",
+              "parentUUID": "46ae15a4-205a-499f-8421-da8a4d839f0a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login gagal tanpa password",
+              "fullTitle": "Login - SauceDemo Login gagal tanpa password",
+              "timedOut": false,
+              "duration": 691,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('https://www.saucedemo.com/');\nawait driver.findElement(By.id('user-name')).sendKeys('standard_user');\nawait driver.findElement(By.id('login-button')).click();\nconst error = await driver.findElement(By.css('[data-test=\"error\"]')).getText();\nassert.ok(error.includes('Password is required'));",
+              "err": {},
+              "uuid": "ed30fbf4-bf1e-471c-873d-a1e152b34182",
+              "parentUUID": "46ae15a4-205a-499f-8421-da8a4d839f0a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login gagal dengan user terkunci",
+              "fullTitle": "Login - SauceDemo Login gagal dengan user terkunci",
+              "timedOut": false,
+              "duration": 762,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('https://www.saucedemo.com/');\nawait driver.findElement(By.id('user-name')).sendKeys('locked_out_user');\nawait driver.findElement(By.id('password')).sendKeys('secret_sauce');\nawait driver.findElement(By.id('login-button')).click();\nconst error = await driver.findElement(By.css('[data-test=\"error\"]')).getText();\nassert.ok(error.includes('Sorry, this user has been locked out'));",
+              "err": {},
+              "uuid": "a4f8f61b-de25-47a3-aea4-7ab89941f167",
+              "parentUUID": "46ae15a4-205a-499f-8421-da8a4d839f0a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1ee07c15-2d5c-4b0b-8be5-936b0f69ed59",
+            "2f52e3aa-1824-43be-b1dd-72fa7525d89e",
+            "bddffec1-eb17-4e3b-96b7-298cd13567ef",
+            "ed30fbf4-bf1e-471c-873d-a1e152b34182",
+            "a4f8f61b-de25-47a3-aea4-7ab89941f167"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3684,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.8.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.2"
+    }
+  }
+}
