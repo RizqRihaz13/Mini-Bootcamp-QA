@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 2,
-    "passes": 1,
+    "passes": 2,
     "pending": 0,
-    "failures": 1,
-    "start": "2026-04-24T09:05:43.835Z",
-    "end": "2026-04-24T09:05:47.635Z",
-    "duration": 3800,
+    "failures": 0,
+    "start": "2026-04-28T04:20:13.367Z",
+    "end": "2026-04-28T04:20:16.995Z",
+    "duration": 3628,
     "testsRegistered": 2,
-    "passPercent": 50,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "b02c4426-0fa5-4cf5-b261-74aecf9ba6de",
+      "uuid": "80bab515-b280-4837-b2ff-a0e3ad84453a",
       "title": "",
       "fullFile": "C:\\KULIAH\\Mini Bootcamp QA\\Sesi-9_Web-UI-Automation-Fundamental\\test\\test-sauce.js",
       "file": "\\test\\test-sauce.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "4b760e7d-322a-4d43-b846-b6be4c76e611",
+          "uuid": "88facedc-f6c1-46c9-b78f-284c717718d0",
           "title": "SauceDemo Automation Test",
           "fullFile": "C:\\KULIAH\\Mini Bootcamp QA\\Sesi-9_Web-UI-Automation-Fundamental\\test\\test-sauce.js",
           "file": "\\test\\test-sauce.js",
@@ -36,7 +36,7 @@
               "title": "\"before each\" hook in \"SauceDemo Automation Test\"",
               "fullTitle": "SauceDemo Automation Test \"before each\" hook in \"SauceDemo Automation Test\"",
               "timedOut": false,
-              "duration": 842,
+              "duration": 845,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,8 +45,8 @@
               "context": null,
               "code": "driver = await new Builder().forBrowser('chrome').build();",
               "err": {},
-              "uuid": "9a1a4cb9-f3f8-4268-bbcb-8e09cba55b3f",
-              "parentUUID": "4b760e7d-322a-4d43-b846-b6be4c76e611",
+              "uuid": "53c6a953-3a0d-4291-94f0-aa40c298ae0d",
+              "parentUUID": "88facedc-f6c1-46c9-b78f-284c717718d0",
               "isHook": true,
               "skipped": false
             }
@@ -56,7 +56,7 @@
               "title": "\"after each\" hook in \"SauceDemo Automation Test\"",
               "fullTitle": "SauceDemo Automation Test \"after each\" hook in \"SauceDemo Automation Test\"",
               "timedOut": false,
-              "duration": 58,
+              "duration": 72,
               "state": null,
               "speed": null,
               "pass": false,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "await driver.quit();",
               "err": {},
-              "uuid": "859e9f7f-81ab-4f76-a295-8e3be7e29e2c",
-              "parentUUID": "4b760e7d-322a-4d43-b846-b6be4c76e611",
+              "uuid": "8b2a7acd-0889-47a0-aa73-eea56a4cdfdf",
+              "parentUUID": "88facedc-f6c1-46c9-b78f-284c717718d0",
               "isHook": true,
               "skipped": false
             }
@@ -76,7 +76,7 @@
               "title": "Sukses Login",
               "fullTitle": "SauceDemo Automation Test Sukses Login",
               "timedOut": false,
-              "duration": 840,
+              "duration": 799,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -85,8 +85,8 @@
               "context": null,
               "code": "await login();\nconst url = await driver.getCurrentUrl();\nassert.ok(url.includes('inventory'), 'Login gagal');",
               "err": {},
-              "uuid": "3dc52257-941f-417c-9949-69ffe66efb56",
-              "parentUUID": "4b760e7d-322a-4d43-b846-b6be4c76e611",
+              "uuid": "15c66293-0319-4d1f-8ad3-2cb21c5fd0ed",
+              "parentUUID": "88facedc-f6c1-46c9-b78f-284c717718d0",
               "isHook": false,
               "skipped": false
             },
@@ -94,35 +94,30 @@
               "title": "Urutkan Produk dari A-Z",
               "fullTitle": "SauceDemo Automation Test Urutkan Produk dari A-Z",
               "timedOut": false,
-              "duration": 1071,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 948,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
-              "code": "await login();\nawait driver.wait(\n    until.elementLocated(By.className('product_sort_container')),\n    5000\n);\nconst dropdown = await driver.findElement(By.className('product_sort_container'));\nawait dropdown.sendKeys('Name (A to Z)');\nawait driver.wait(\n    until.elementsLocated(By.className('inventory_item_name')),\n    5000\n);\nconst items = await driver.findElements(By.className('inventory_item_name'));\nlet names = [];\nfor (let item of items) {\n    names.push(await item.getText());\n}\nconst sortedNames = [...names].sort();\nassert.deepStrictEqual(names, sortedNames, 'Sorting gagal');",
-              "err": {
-                "message": "AssertionError: Sorting gagal\n+ actual - expected\n\n  [\n+   'Test.allTheThings() T-Shirt (Red)',\n+   'Sauce Labs Onesie',\n+   'Sauce Labs Fleece Jacket',\n+   'Sauce Labs Bolt T-Shirt',\n+   'Sauce Labs Bike Light',\n+   'Sauce Labs Backpack'\n-   'Sauce Labs Backpack',\n-   'Sauce Labs Bike Light',\n-   'Sauce Labs Bolt T-Shirt',\n-   'Sauce Labs Fleece Jacket',\n-   'Sauce Labs Onesie',\n-   'Test.allTheThings() T-Shirt (Red)'\n  ]",
-                "estack": "AssertionError [ERR_ASSERTION]: Sorting gagal\n+ actual - expected\n\n  [\n+   'Test.allTheThings() T-Shirt (Red)',\n+   'Sauce Labs Onesie',\n+   'Sauce Labs Fleece Jacket',\n+   'Sauce Labs Bolt T-Shirt',\n+   'Sauce Labs Bike Light',\n+   'Sauce Labs Backpack'\n-   'Sauce Labs Backpack',\n-   'Sauce Labs Bike Light',\n-   'Sauce Labs Bolt T-Shirt',\n-   'Sauce Labs Fleece Jacket',\n-   'Sauce Labs Onesie',\n-   'Test.allTheThings() T-Shirt (Red)'\n  ]\n    at Context.<anonymous> (test\\test-sauce.js:59:16)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
-                "diff": " [\n+   \"Sauce Labs Backpack\"\n+   \"Sauce Labs Bike Light\"\n+   \"Sauce Labs Bolt T-Shirt\"\n+   \"Sauce Labs Fleece Jacket\"\n+   \"Sauce Labs Onesie\"\n   \"Test.allTheThings() T-Shirt (Red)\"\n-   \"Sauce Labs Onesie\"\n-   \"Sauce Labs Fleece Jacket\"\n-   \"Sauce Labs Bolt T-Shirt\"\n-   \"Sauce Labs Bike Light\"\n-   \"Sauce Labs Backpack\"\n ]\n"
-              },
-              "uuid": "db349df8-8468-49fd-88f8-fb5972d71ab8",
-              "parentUUID": "4b760e7d-322a-4d43-b846-b6be4c76e611",
+              "code": "await login();\nconst dropdown = await driver.wait(\n    until.elementLocated(By.className('product_sort_container')),\n    5000\n);\nawait dropdown.sendKeys('az');\nawait driver.wait(async () => {\n    const firstItem = await driver\n        .findElement(By.className('inventory_item_name'))\n        .getText();\n    return firstItem === 'Sauce Labs Backpack';\n}, 5000);\nconst items = await driver.findElements(By.className('inventory_item_name'));\nconst names = [];\nfor (const item of items) {\n    const text = await item.getText();\n    names.push(text);\n}\nconst sortedNames = [...names].sort();\nassert.deepStrictEqual(names, sortedNames, 'Sorting gagal');",
+              "err": {},
+              "uuid": "d6f68d32-0e9b-429a-b50a-002e68582879",
+              "parentUUID": "88facedc-f6c1-46c9-b78f-284c717718d0",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "3dc52257-941f-417c-9949-69ffe66efb56"
+            "15c66293-0319-4d1f-8ad3-2cb21c5fd0ed",
+            "d6f68d32-0e9b-429a-b50a-002e68582879"
           ],
-          "failures": [
-            "db349df8-8468-49fd-88f8-fb5972d71ab8"
-          ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1911,
+          "duration": 1747,
           "root": false,
           "rootEmpty": false,
           "_timeout": 30000

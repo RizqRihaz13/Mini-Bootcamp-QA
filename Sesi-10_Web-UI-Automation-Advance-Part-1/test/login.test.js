@@ -7,12 +7,12 @@ describe('Login - SauceDemo', function () {
 
     let driver;
 
-    // 🔹 Hook: dijalankan sekali sebelum semua test
+    // Hook: dijalankan sekali sebelum semua test
     before(function () {
         console.log('=== START TEST LOGIN SAUCEDEMO ===');
     });
 
-    // 🔹 Hook: dijalankan sebelum setiap test
+    // Hook: dijalankan sebelum setiap test
     beforeEach(async function () {
         let options = new chrome.Options();
         options.addArguments('--headless');
@@ -23,12 +23,12 @@ describe('Login - SauceDemo', function () {
             .build();
     });
 
-    // 🔹 Hook: dijalankan setelah setiap test
+    // Hook: dijalankan setelah setiap test
     afterEach(async function () {
         await driver.quit();
     });
 
-    // 🔹 Hook: dijalankan sekali setelah semua test
+    // Hook: dijalankan sekali setelah semua test
     after(function () {
         console.log('=== END TEST LOGIN SAUCEDEMO ===');
     });
