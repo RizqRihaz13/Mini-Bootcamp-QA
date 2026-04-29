@@ -1,0 +1,195 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-04-29T16:31:10.384Z",
+    "end": "2026-04-29T16:31:18.028Z",
+    "duration": 7644,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0d453e03-79ae-4f51-ba15-95d247abd57d",
+      "title": "",
+      "fullFile": "C:\\KULIAH\\Mini Bootcamp QA\\Sesi-11_Web-UI-Automation-Advance-Part-2\\test\\specs\\login.test.js",
+      "file": "\\test\\specs\\login.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "92c1dcfe-e1ad-4248-bd1d-252b2b7869aa",
+          "title": "Login - SauceDemo",
+          "fullFile": "C:\\KULIAH\\Mini Bootcamp QA\\Sesi-11_Web-UI-Automation-Advance-Part-2\\test\\specs\\login.test.js",
+          "file": "\\test\\specs\\login.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Login - SauceDemo\"",
+              "fullTitle": "Login - SauceDemo \"before each\" hook in \"Login - SauceDemo\"",
+              "timedOut": false,
+              "duration": 1169,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build();\nloginAction = new LoginAction(driver);\nawait loginAction.openLoginPage('https://www.saucedemo.com/');",
+              "err": {},
+              "uuid": "6b9efec0-c9cd-4629-a4a6-db0931104bc5",
+              "parentUUID": "92c1dcfe-e1ad-4248-bd1d-252b2b7869aa",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"Login - SauceDemo\"",
+              "fullTitle": "Login - SauceDemo \"after each\" hook in \"Login - SauceDemo\"",
+              "timedOut": false,
+              "duration": 95,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "874186c3-765d-407f-8fe2-4e92579920e6",
+              "parentUUID": "92c1dcfe-e1ad-4248-bd1d-252b2b7869aa",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Login berhasil dengan credential valid",
+              "fullTitle": "Login - SauceDemo Login berhasil dengan credential valid",
+              "timedOut": false,
+              "duration": 666,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await loginAction.inputUsername('standard_user');\nawait loginAction.inputPassword('secret_sauce');\nawait loginAction.clickLogin();\nawait loginAction.assertLoginSuccess();\n// Visual Regression\nawait compareScreenshot(driver, 'login-success');",
+              "err": {},
+              "uuid": "b83ec97e-b66c-4b5a-81ad-501a0a353642",
+              "parentUUID": "92c1dcfe-e1ad-4248-bd1d-252b2b7869aa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login gagal dengan invalid username",
+              "fullTitle": "Login - SauceDemo Login gagal dengan invalid username",
+              "timedOut": false,
+              "duration": 596,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await loginAction.inputUsername('invalid_user');\nawait loginAction.inputPassword('secret_sauce');\nawait loginAction.clickLogin();\nawait loginAction.assertLoginFailed('Username and password do not match');\n// Visual Regression\nawait compareScreenshot(driver, 'invalid-username');",
+              "err": {},
+              "uuid": "e8e289ac-5938-4e6f-b525-6694119b3336",
+              "parentUUID": "92c1dcfe-e1ad-4248-bd1d-252b2b7869aa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login gagal dengan wrong password",
+              "fullTitle": "Login - SauceDemo Login gagal dengan wrong password",
+              "timedOut": false,
+              "duration": 581,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await loginAction.inputUsername('standard_user');\nawait loginAction.inputPassword('wrong_password');\nawait loginAction.clickLogin();\nawait loginAction.assertLoginFailed('Username and password do not match');\n// Visual Regression\nawait compareScreenshot(driver, 'wrong-password');",
+              "err": {},
+              "uuid": "c6b84d35-c39f-4111-a369-7b35f4f40855",
+              "parentUUID": "92c1dcfe-e1ad-4248-bd1d-252b2b7869aa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login gagal dengan user terkunci",
+              "fullTitle": "Login - SauceDemo Login gagal dengan user terkunci",
+              "timedOut": false,
+              "duration": 595,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await loginAction.inputUsername('locked_out_user');\nawait loginAction.inputPassword('secret_sauce');\nawait loginAction.clickLogin();\nawait loginAction.assertLoginFailed('Sorry, this user has been locked out');\n// Visual Regression\nawait compareScreenshot(driver, 'locked-user');",
+              "err": {},
+              "uuid": "7354a033-2e04-4f71-9530-693cd5ccfa34",
+              "parentUUID": "92c1dcfe-e1ad-4248-bd1d-252b2b7869aa",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b83ec97e-b66c-4b5a-81ad-501a0a353642",
+            "e8e289ac-5938-4e6f-b525-6694119b3336",
+            "c6b84d35-c39f-4111-a369-7b35f4f40855",
+            "7354a033-2e04-4f71-9530-693cd5ccfa34"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2438,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.8.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.2"
+    }
+  }
+}
