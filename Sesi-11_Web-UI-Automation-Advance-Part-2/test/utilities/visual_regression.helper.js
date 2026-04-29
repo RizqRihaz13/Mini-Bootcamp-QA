@@ -8,7 +8,7 @@ async function compareScreenshot(driver, imageName, maxDiffPercent = 1) {
     const currentDir = path.join('visual_regression', 'current');
     const diffDir = path.join('visual_regression', 'diff');
 
-    // buat folder kalau belum ada
+    // buat folder 
     [currentDir, baselineDir, diffDir].forEach(dir => {
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir, { recursive: true });
@@ -24,7 +24,7 @@ async function compareScreenshot(driver, imageName, maxDiffPercent = 1) {
     const imgBuffer = Buffer.from(screenshot, 'base64');
     fs.writeFileSync(currentPath, imgBuffer);
 
-    // kalau baseline belum ada → buat baseline
+    // buat baseline
     if (!fs.existsSync(baselinePath)) {
         fs.copyFileSync(currentPath, baselinePath);
         console.log(`Baseline created: ${imageName}`);
